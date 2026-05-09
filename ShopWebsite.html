@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior:smooth;">
+<head>
+<meta charset="UTF-8">
+<title>Himanshu Store</title>
+
+<style>
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+/* Background */
+body {
+    background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+}
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: #020024;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+nav h2 {
+    color: #00f7ff;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #00f7ff;
+}
+
+/* Categories */
+.categories {
+    text-align: bottom;
+    margin: 20px;
+}
+
+.categories button {
+    margin: 5px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 20px;
+    background: #1f2937;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.categories button:hover {
+    background: #00f7ff;
+    color: black;
+    transform: scale(1.1);
+}
+
+/* Products */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Card */
+.card {
+    background: rgba(255,255,255,0.9);
+    padding: 15px;
+    width: 220px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 15px #00f7ff;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.desc {
+    font-size: 13px;
+    color: #555;
+}
+
+.price {
+    color: #d12222;
+    margin: 8px 0;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+
+/* Buttons */
+button {
+    padding: 8px 15px;
+    background: linear-gradient(45deg, #00f7ff, #1db954);
+    border: none;
+    color: black;
+    cursor: pointer;
+    border-radius: 20px;
+    transition:  all 0.3s ease-in;
+    font-weight: bold;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #00f7ff;
+    background: linear-gradient(45deg, #1db954, #00f7ff);
+}
+
+/* Cart */
+.cart-box {
+    margin: 30px auto;
+    width: 320px;
+    background: rgba(255,255,255,0.95);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #00f7ff;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Sections */
+section {
+    padding: 30px;
+    text-align: center;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background: #020024;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+.cart-btn {
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: #1f2937;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cart-btn:hover {
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #00c6ff;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 8px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: #1f2937;
+    color: white;
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+.nav-links a:hover {
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #ff7e5f;
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00f7ff;
+}
+
+.logo span {
+    color: #ff7e5f;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav id="home">
+    <h2 class="logo">Shop<span>Sphere</span></h2>
+    <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
+    <div class="cart-btn">Cart: <span id="cartCount">0</span></div>
+</nav>
+
+<!-- Categories -->
+<div class="categories">
+    <button onclick="filter('all')">All</button>
+    <button onclick="filter('grocery')">Grocery</button>
+    <button onclick="filter('clothes')">Clothing</button>
+    <button onclick="filter('electronics')">Electronics</button>
+</div>
+
+<!-- Products -->
+<div class="products">
+
+<!-- Grocery -->
+<div class="card grocery"><img src="Img\Biscuit.jpg"><h3>Biscuits</h3><p class="desc" c:\Users\himan\Downloads\Juicee.jpg>Crunchy tea-time biscuits.</p><p class="price">₹50</p><button onclick="addToCart('Biscuits',50)">Add to Cart</button></div>
+<div class="card grocery"><img src="Img\Namkeen2.jpg"><h3>Namkeen</h3><p class="desc">Spicy snacks.</p><p class="price">₹80</p><button onclick="addToCart('Namkeen',80)">Add</button></div>
+<div class="card grocery"><img src="Chips.jpg"><h3>Chips</h3><p class="desc">Crispy chips.</p><p class="price">₹30</p><button onclick="addToCart('Chips',30)">Add</button></div>
+<div class="card grocery"><img src="Img\Juicee.jpg"><h3>Juice</h3><p class="desc">Fresh juice.</p><p class="price">₹60</p><button onclick="addToCart('Juice',60)">Add</button></div>
+<div class="card grocery"><img src="Img\Chocolate.jpg"><h3>Chocolate</h3><p class="desc">Sweet chocolate.</p><p class="price">₹120</p><button onclick="addToCart('Chocolate',120)">Add</button></div>
+
+<!-- Clothes -->
+<div class="card clothes"><img src="Img\Shirt.jpg"><h3>Shirt</h3><p class="desc">Cotton shirt.</p><p class="price">₹499</p><button onclick="addToCart('Shirt',499)">Add</button></div>
+<div class="card clothes"><img src="Img\TShirt.jpg"><h3>T-Shirt</h3><p class="desc">Casual t-shirt.</p><p class="price">₹399</p><button onclick="addToCart('T-Shirt',399)">Add</button></div>
+<div class="card clothes"><img src="Img\Jeans.jpg"><h3>Jeans</h3><p class="desc">Denim jeans.</p><p class="price">₹999</p><button onclick="addToCart('Jeans',999)">Add</button></div>
+<div class="card clothes"><img src="Img\Trouser.jpg"><h3>Trousers</h3><p class="desc">Formal trousers.</p><p class="price">₹799</p><button onclick="addToCart('Trousers',799)">Add</button></div>
+<div class="card clothes"><img src="Img\Jacket.jpg"><h3>Jacket</h3><p class="desc">Winter jacket.</p><p class="price">₹1499</p><button onclick="addToCart('Jacket',1499)">Add</button></div>
+
+<!-- Electronics -->
+<div class="card electronics"><img src="Img\Headphone.jpg"><h3>Headphones</h3><p class="desc">High quality sound.</p><p class="price">₹1500</p><button onclick="addToCart('Headphones',1500)">Add</button></div>
+<div class="card electronics"><img src="Img\SmartWatch.jpg"><h3>Watch</h3><p class="desc">Smart watch.</p><p class="price">₹2000</p><button onclick="addToCart('Watch',2000)">Add</button></div>
+<div class="card electronics"><img src="Img\Mobile.jpg"><h3>Mobile</h3><p class="desc">Latest smartphone.</p><p class="price">₹15000</p><button onclick="addToCart('Mobile',15000)">Add</button></div>
+<div class="card electronics"><img src="Img\Laptop.jpg"><h3>Laptop</h3><p class="desc">Powerful laptop.</p><p class="price">₹50000</p><button onclick="addToCart('Laptop',50000)">Add</button></div>
+<div class="card electronics"><img src="Img\Speaker.jpg"><h3>Speaker</h3><p class="desc">Loud sound.</p><p class="price">₹2500</p><button onclick="addToCart('Speaker',2500)">Add</button></div>
+
+</div>
+
+<!-- Cart -->
+<div class="cart-box">
+    <h3>Your Cart</h3>
+    <div id="cartItems"></div>
+    <h4 id="total">Total: ₹0</h4>
+</div>
+<!-- Proceed Button -->
+<!-- Overlay -->
+<div id="overlay" onclick="closePayment()"></div>
+
+<!-- Proceed Button -->
+<div style="text-align:center;">
+    <button onclick="showPayment()">Proceed to Payment</button>
+</div>
+
+<!-- Payment Popup -->
+<div id="paymentBox" style="display:none; text-align:center; margin-top:20px; background:white; padding:20px; border-radius:10px;">
+    <h3>Select Payment Method</h3>
+
+    <button onclick="pay()">UPI</button>
+    <button onclick="pay()">Card</button>
+    <button onclick="pay()">Cash on Delivery</button>
+</div>
+
+<!-- About -->
+<section id="about">
+    <h2>About Us</h2>
+  <p>
+ShopSphere  is your trusted online store for groceries, fashion, and electronics. 
+We aim to deliver quality products with a smooth and enjoyable shopping experience. 
+Your satisfaction is our priority.
+</p>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: himanshusingh809023@gmail.com</p>
+    <p>Phone: 9235966327</p>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>📍 Location: Bareily , India </p>
+    <p>👤 Owner: Himanshu Singh </p>
+    <p>🙏 Thank you for visiting!</p>
+</footer>
+
+<script>
+
+let cart = [];
+let total = 0;
+
+function addToCart(name, price){
+    cart.push({name, price});
+    total += price;
+
+    document.getElementById("cartCount").innerText = cart.length;
+
+    let html = "";
+    cart.forEach(item=>{
+        html += `<div class="cart-item">
+                    <span>${item.name}</span>
+                    <span>₹${item.price}</span>
+                </div>`;
+    });
+
+    document.getElementById("cartItems").innerHTML = html;
+    document.getElementById("total").innerText = "Total: ₹" + total;
+}
+
+function filter(category){
+    let items = document.querySelectorAll(".card");
+
+    items.forEach(item=>{
+        if(category === "all"){
+            item.style.display = "block";
+        }
+        else if(item.classList.contains(category)){
+            item.style.display = "block";
+        }
+        else{
+            item.style.display = "none";
+        }
+    });
+}
+function showPayment(){
+    document.getElementById("paymentBox").style.display = "block";
+}
+
+function pay(){
+    alert("Payment Successful ✅");
+}
+
+</script>
+
+</body>
+</html>
